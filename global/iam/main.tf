@@ -15,6 +15,7 @@ provider "aws" {
 }
 
 resource "aws_iam_user" "example" {
+  # NOTE: This is now an array of resources, no longer a single resource
   count = 3
-  name  = "neo.${count.index}"
+  name  = var.user_names[count.index]
 }

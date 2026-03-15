@@ -16,6 +16,7 @@ provider "aws" {
 
 resource "aws_iam_user" "example" {
   # NOTE: This is now an array of resources, no longer a single resource
-  count = 3
-  name  = var.user_names[count.index]
+  # we convert to a set since for_each only works on sets/maps
+  for_each = toset(var.user_names)
+  name     = each.value
 }

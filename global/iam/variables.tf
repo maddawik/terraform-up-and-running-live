@@ -15,3 +15,9 @@ variable "hero_thousand_faces" {
     morpheus = "mentor"
   }
 }
+
+
+variable "give_neo_full_cloudwatch_access" {
+  description = "If set to true, neo gets full access to CloudWatch"
+  type        = bool
+}
